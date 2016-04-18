@@ -18,9 +18,10 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, run: "always", inline: $init
 
   config.vm.network :private_network, ip: "192.168.3.14"
-  config.vm.network "forwarded_port", guest: 35729, host: 35729
+  config.vm.network "forwarded_port", guest: 35729, host: 35729, auto_correct: true
+  config.vm.network "forwarded_port", guest: 27017, host: 127017, auto_correct: true
   for i in 8080..8100
-    config.vm.network :forwarded_port, guest: i, host: i+10000
+    config.vm.network :forwarded_port, guest: i, host: i+10000, auto_correct: true
   end
 
   config.vm.synced_folder ".", "/vagrant", type: "nfs", create: true
@@ -29,8 +30,6 @@ Vagrant.configure(2) do |config|
   config.vm.provider :virtualbox do |vb|
     vb.name = "Periphore MEAN Box"
     vb.customize ['modifyvm', :id, '--memory', '2048']
-    vb.customize ["modifyvm", :id, "--usb", "on"]
-    vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "android", "--vendorid", "0x18d1"]
   end
 
 end

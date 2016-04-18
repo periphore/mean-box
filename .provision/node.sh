@@ -6,7 +6,7 @@ echo "source /home/vagrant/.nvm/nvm.sh" >> /home/vagrant/.profile
 source /home/vagrant/.profile
 
 nvm install node
-nvm install v5.0.0
+nvm install stable
 nvm install v4.4.2
 nvm alias default v4.4.2
 npm i -g bower nodemon gulp mocha

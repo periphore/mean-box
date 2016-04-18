@@ -22,6 +22,10 @@ No provisioning tools or setup is necessary.
 
 - Download and install [Vagrant](https://vagrantup.com)
 - Download and install [VirtualBox](https://www.virtualbox.org)
+- Install vagrant plugins and prerequisite packages
+  - (Windows) ``` vagrant plugin install vagrant-winnfsd ```
+  - (Linux) ``` sudo apt-get install nfs-common nfs-kernel-server ```
+  - (All) ``` vagrant plugin install vagrant-vbguest ```
 - Clone the MEAN Box [Github Repository](https://github.com/periphore/mean-box)
 - Run ``` vagrant up ```
 - Access your box at [http://192.168.3.14](http://192.168.3.14)
